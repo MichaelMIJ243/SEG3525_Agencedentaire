@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael MIJ Dental | Clinique Dentaire - Gatineau</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4b6cb7;
+      --secondary: #3a5a9f;
+      --light: #f0f5f9;
+      --dark: #2c3e50;
+      --accent: #ff6b6b;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: #334155;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, .display-1, .display-2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    
+    .hero {
+      background: linear-gradient(rgba(75, 108, 183, 0.9), rgba(75, 108, 183, 0.9)),
+                  url('https://images.unsplash.com/photo-1589684385127-1ef15d508118') center/cover;
+      color: white;
+      padding: 8rem 0 6rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f0f5f9" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f0f5f9" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f0f5f9"/></svg>') no-repeat;
+      background-size: cover;
+    }
+    
+    .service-card {
+      transition: transform 0.4s, box-shadow 0.4s;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      height: 100%;
+      cursor: pointer;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .service-price {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--primary);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .dentist-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+    
+    .dentist-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(75, 108, 183, 0.4);
+    }
+    
+    .btn-accent {
+      background-color: var(--accent);
+      color: white;
+    }
+    
+    .btn-accent:hover {
+      background-color: #ff5252;
+      color: white;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: white;
+      position: relative;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    /* Modal styles */
+    .modal-service-img {
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    
+    /* Emergency badge */
+    .emergency-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: var(--accent);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      z-index: 2;
+    }
+    
+    /* Calendar styles */
+    .calendar-day {
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .calendar-day:hover {
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+    
+    .calendar-day.available {
+      background-color: #e3f2fd;
+      font-weight: 600;
+    }
+    
+    .calendar-day.selected {
+      background-color: var(--primary);
+      color: white;
+      border-radius: 5px;
+    }
+    
+    .calendar-day.unavailable {
+      color: #adb5bd;
+      cursor: not-allowed;
+    }
+    
+    .time-slot {
+      padding: 8px 12px;
+      margin: 5px;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .time-slot:hover {
+      background-color: #e9ecef;
+    }
+    
+    .time-slot.selected {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .time-slots-container {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <h2 class="m-0"><span class="text-primary">Michael MIJ</span> Dental</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#dentist">Dr. Michael MIJ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="btn btn-primary" href="#rdv">Prendre RDV</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+          <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Votre sourire mérite l'excellence</h1>
+          <p class="lead mb-5 fs-4 animate__animated animate__fadeIn animate__delay-1s">Soins dentaires personnalisés avec une approche humaine et professionnelle</p>
+          <div class="animate__animated animate__fadeIn animate__delay-2s">
+            <a href="#rdv" class="btn btn-light btn-lg px-4 me-3"><i class="bi bi-calendar-check me-2"></i>Prendre rendez-vous</a>
+            <a href="tel:8195551234" class="btn btn-accent btn-lg px-4"><i class="bi bi-telephone me-2"></i>Urgence dentaire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold section-title">Nos Services Dentaires</h2>
+        <p class="text-muted">Des soins complets adaptés à vos besoins</p>
+      </div>
+      
+      <div class="row g-4">
+        <!-- Orthodontie -->
+        <div class="col-md-4">
+          <div class="card service-card h-100" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="orthodontie">
+            <div class="service-price">À partir de 1200$</div>
+            <img src="https://images.unsplash.com/photo-1603210113259-7825732709f7" class="card-img-top" alt="Orthodontie">
+            <div class="card-body">
+              <h5 class="card-title">Orthodontie</h5>
+              <p class="card-text">Solutions d'alignement dentaire pour enfants et adultes avec des options discrètes.</p>
+              <a href="#rdv" class="btn btn-outline-primary">Prendre RDV</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Esthétique dentaire -->
+        <div class="col-md-4">
+          <div class="card service-card h-100" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="esthetique">
+            <div class="service-price">À partir de 800$</div>
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="card-img-top" alt="Esthétique dentaire">
+            <div class="card-body">
+              <h5 class="card-title">Esthétique dentaire</h5>
+              <p class="card-text">Facettes, blanchiment et design du sourire pour un résultat naturel et éclatant.</p>
+              <a href="#rdv" class="btn btn-outline-primary">Prendre RDV</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Soins restaurateurs -->
+        <div class="col-md-4">
+          <div class="card service-card h-100" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="restauration">
+            <div class="service-price">À partir de 500$</div>
+            <img src="https://images.unsplash.com/photo-1588776609731-7db8b794c2f2" class="card-img-top" alt="Soins restaurateurs">
+            <div class="card-body">
+              <h5 class="card-title">Soins restaurateurs</h5>
+              <p class="card-text">Couronnes, bridges et implants pour restaurer fonction et esthétique.</p>
+              <a href="#rdv" class="btn btn-outline-primary">Prendre RDV</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pose d'appareil dentaire -->
+        <div class="col-md-6">
+          <div class="card service-card h-100" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="appareil">
+            <div class="service-price">À partir de 1500$</div>
+            <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe" class="card-img-top" alt="Appareil dentaire">
+            <div class="card-body">
+              <h5 class="card-title">Pose d'appareil dentaire</h5>
+              <p class="card-text">Solutions orthodontiques traditionnelles et modernes pour tous les âges.</p>
+              <a href="#rdv" class="btn btn-outline-primary">Prendre RDV</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Nettoyage -->
+        <div class="col-md-6">
+          <div class="card service-card h-100" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="nettoyage">
+            <div class="service-price">À partir de 120$</div>
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" class="card-img-top" alt="Nettoyage">
+            <div class="card-body">
+              <h5 class="card-title">Nettoyage professionnel</h5>
+              <p class="card-text">Détartrage et polissage pour une hygiène optimale et prévention des caries.</p>
+              <a href="#rdv" class="btn btn-outline-primary">Prendre RDV</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Urgence dentaire -->
+        <div class="col-12">
+          <div class="card service-card h-100 border border-3 border-accent" data-bs-toggle="modal" data-bs-target="#serviceModal" data-service="urgence">
+            <div class="emergency-badge">Service d'urgence</div>
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Urgence dentaire">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body d-flex flex-column h-100">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Urgence dentaire</h5>
+                    <div class="service-price bg-accent">À partir de 200$</div>
+                  </div>
+                  <p class="card-text mt-3">Service d'urgence disponible 24/7 pour les douleurs dentaires sévères, les traumatismes et les infections.</p>
+                  <div class="mt-auto">
+                    <a href="tel:8195551234" class="btn btn-accent me-2"><i class="bi bi-telephone me-2"></i>Appeler maintenant</a>
+                    <a href="#rdv" class="btn btn-outline-primary">Prendre RDV</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Modal -->
+  <div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="serviceModalTitle">Service</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <img id="serviceModalImage" src="" class="img-fluid rounded modal-service-img" alt="">
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <h5 class="mb-0" id="serviceModalPrice"></h5>
+                <span class="badge bg-primary" id="serviceModalDuration"></span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4 id="serviceModalName"></h4>
+              <div id="serviceModalDescription" class="mb-4"></div>
+              <div class="mb-4">
+                <h6>Ce service comprend :</h6>
+                <ul id="serviceModalIncludes"></ul>
+              </div>
+              <button class="btn btn-primary w-100" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#appointmentModal">
+                <i class="bi bi-calendar-check me-2"></i>Prendre rendez-vous
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dentist Section -->
+  <section id="dentist" class="py-5 bg-light">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <div class="dentist-card">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2" class="img-fluid" alt="Dr. Michael MIJ">
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <h2 class="fw-bold mb-4 section-title">Dr. Michael MIJ</h2>
+          <p class="lead mb-4">Votre dentiste dévoué à Gatineau</p>
+          
+          <p class="mb-4">Diplômé avec distinction de l'Université de Montréal, le Dr. Michael MIJ possède plus de 15 ans d'expérience en dentisterie générale et esthétique. Son approche patiente et attentionnée a permis à des milliers de patients d'obtenir le sourire de leurs rêves.</p>
+          
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                  <i class="bi bi-award text-primary"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0">Diplômé en Dentisterie</h6>
+                  <p class="text-muted mb-0">Université de Montréal</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                  <i class="bi bi-heart text-primary"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0">Approche humaine</h6>
+                  <p class="text-muted mb-0">Priorité au confort patient</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                  <i class="bi bi-star text-primary"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0">15+ ans d'expérience</h6>
+                  <p class="text-muted mb-0">Expertise confirmée</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                  <i class="bi bi-shield-check text-primary"></i>
+                </div>
+                <div>
+                  <h6 class="mb-0">Hygiène irréprochable</h6>
+                  <p class="text-muted mb-0">Normes strictes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RDV Section -->
+  <section id="rdv" class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h2 class="fw-bold mb-4">Prenez rendez-vous facilement</h2>
+          <p>Notre équipe est disponible du lundi au vendredi de 8h à 18h et le samedi de 9h à 14h.</p>
+          
+          <div class="d-flex align-items-center mb-4">
+            <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-4">
+              <i class="bi bi-telephone fs-4 text-primary"></i>
+            </div>
+            <div>
+              <h5 class="mb-1">Par téléphone</h5>
+              <p class="mb-0 fs-5">819-555-1234</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-4">
+            <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-4">
+              <i class="bi bi-whatsapp fs-4 text-primary"></i>
+            </div>
+            <div>
+              <h5 class="mb-1">Via WhatsApp</h5>
+              <p class="mb-0 fs-5">819-555-5678</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center">
+            <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-4">
+              <i class="bi bi-envelope fs-4 text-primary"></i>
+            </div>
+            <div>
+              <h5 class="mb-1">Par email</h5>
+              <p class="mb-0 fs-5">info@michaelmijdental.ca</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="card shadow">
+            <div class="card-body p-4">
+              <h4 class="mb-4">Formulaire de rendez-vous</h4>
+              <form id="appointmentForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nom complet</label>
+                  <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Téléphone</label>
+                  <input type="tel" class="form-control" id="phone" required>
+                </div>
+                <div class="mb-3">
+                  <label for="service" class="form-label">Service</label>
+                  <select class="form-select" id="service" required>
+                    <option value="">Sélectionnez un service</option>
+                    <option value="orthodontie">Orthodontie</option>
+                    <option value="esthetique">Esthétique dentaire</option>
+                    <option value="restauration">Soins restaurateurs</option>
+                    <option value="appareil">Appareil dentaire</option>
+                    <option value="nettoyage">Nettoyage</option>
+                    <option value="urgence">Urgence dentaire</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="date" class="form-label">Date souhaitée</label>
+                  <input type="date" class="form-control" id="date" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3">Demander un rendez-vous</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Modal -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Prendre rendez-vous</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="calendarAppointmentForm">
+            <input type="hidden" id="selectedService">
+            <div class="mb-4">
+              <h6>Sélectionnez une date</h6>
+              <div class="calendar-container mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <button type="button" class="btn btn-sm btn-outline-secondary prev-month"><i class="bi bi-chevron-left"></i></button>
+                  <h5 class="mb-0 month-year">Juillet 2023</h5>
+                  <button type="button" class="btn btn-sm btn-outline-secondary next-month"><i class="bi bi-chevron-right"></i></button>
+                </div>
+                <div class="row row-cols-7 g-1 text-center mb-2">
+                  <div class="col"><small>Lun</small></div>
+                  <div class="col"><small>Mar</small></div>
+                  <div class="col"><small>Mer</small></div>
+                  <div class="col"><small>Jeu</small></div>
+                  <div class="col"><small>Ven</small></div>
+                  <div class="col"><small>Sam</small></div>
+                  <div class="col"><small>Dim</small></div>
+                </div>
+                <div class="row row-cols-7 g-1" id="calendarDays">
+                  <!-- Calendar days will be generated by JavaScript -->
+                </div>
+              </div>
+              
+              <div id="timeSlotsSection" class="d-none">
+                <h6 class="mt-4 mb-3">Sélectionnez un horaire</h6>
+                <div class="time-slots-container">
+                  <div class="row" id="timeSlots">
+                    <!-- Time slots will be generated by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div id="appointmentDetails" class="d-none">
+              <div class="mb-3">
+                <label for="appointmentName" class="form-label">Nom complet</label>
+                <input type="text" class="form-control" id="appointmentName" required>
+              </div>
+              <div class="mb-3">
+                <label for="appointmentPhone" class="form-label">Téléphone</label>
+                <input type="tel" class="form-control" id="appointmentPhone" required>
+              </div>
+              <div class="mb-3">
+                <label for="appointmentEmail" class="form-label">Email (optionnel)</label>
+                <input type="email" class="form-control" id="appointmentEmail">
+              </div>
+              <div class="mb-3">
+                <label for="appointmentNotes" class="form-label">Notes (optionnel)</label>
+                <textarea class="form-control" id="appointmentNotes" rows="2"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Confirmer le rendez-vous</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Section -->
+  <div class="map-container" style="height: 400px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.132056028924!2d-75.7089999245895!3d45.43054197107239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05d38a9ab5c9%3A0x7839e4e1e58d3a4a!2s123%20Rue%20Principale%2C%20Gatineau%2C%20QC%20J9A%201A1!5e0!3m2!1sen!2sca!4v1620000000000!5m2!1sen!2sca" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+
+  <!-- Footer -->
+  <footer class="pt-5">
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h3 class="text-white mb-4">Michael MIJ Dental</h3>
+          <p class="text-white-50">Votre clinique dentaire de confiance à Gatineau, offrant des soins personnalisés avec professionnalisme et compassion.</p>
+          <div class="mt-4">
+            <a href="#" class="text-white-50 me-3"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="text-white-50 me-3"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="#" class="text-white-50"><i class="bi bi-linkedin fs-5"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
+          <h5 class="text-white mb-4">Services</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Orthodontie</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Esthétique dentaire</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Soins restaurateurs</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Appareils dentaires</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Nettoyage</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Urgence dentaire</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
+          <h5 class="text-white mb-4">Heures d'ouverture</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2">Lundi - Vendredi: 8h - 18h</li>
+            <li class="mb-2">Samedi: 9h - 14h</li>
+            <li class="mb-2">Dimanche: Fermé</li>
+            <li class="mb-2">Urgences: 24/7</li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <h5 class="text-white mb-4">Contact</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>123 Rue Principale, Gatineau</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i>819-555-1234</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@michaelmijdental.ca</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i>Urgence: 819-555-4321</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4 bg-secondary">
+      <div class="text-center">
+        <p class="mb-0 text-white-50">&copy; 2023 Michael MIJ Dental. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Service data
+    const services = {
+      orthodontie: {
+        name: "Orthodontie",
+        price: "À partir de 1200$",
+        duration: "Consultation: 1h",
+        image: "https://images.unsplash.com/photo-1603210113259-7825732709f7",
+        description: "Nos traitements orthodontiques offrent des solutions complètes pour aligner vos dents et améliorer votre sourire. Nous proposons des options traditionnelles et modernes, y compris des appareils discrets pour adultes.",
+        includes: [
+          "Consultation initiale et diagnostic",
+          "Traitements avec bagues métalliques ou céramiques",
+          "Options d'aligneurs invisibles",
+          "Suivi régulier et ajustements",
+          "Contention post-traitement"
+        ]
+      },
+      esthetique: {
+        name: "Esthétique dentaire",
+        price: "À partir de 800$",
+        duration: "1-2 séances",
+        image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5",
+        description: "Transformez votre sourire avec nos traitements esthétiques personnalisés. Nous offrons des solutions naturelles et durables pour des dents plus blanches, plus alignées et plus harmonieuses.",
+        includes: [
+          "Blanchiment professionnel",
+          "Facettes en céramique",
+          "Bonding composite",
+          "Design du sourire numérique",
+          "Consultation esthétique"
+        ]
+      },
+      restauration: {
+        name: "Soins restaurateurs",
+        price: "À partir de 500$",
+        duration: "1-3 visites",
+        image: "https://images.unsplash.com/photo-1588776609731-7db8b794c2f2",
+        description: "Restaurer la fonction et l'esthétique de vos dents endommagées avec des solutions durables et naturelles. Nous utilisons des matériaux de haute qualité pour des résultats optimaux.",
+        includes: [
+          "Couronnes en céramique ou zircone",
+          "Bridges dentaires",
+          "Implants dentaires",
+          "Inlays/Onlays",
+          "Traitement des caries complexes"
+        ]
+      },
+      appareil: {
+        name: "Pose d'appareil dentaire",
+        price: "À partir de 1500$",
+        duration: "Traitement: 12-24 mois",
+        image: "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe",
+        description: "Corrigez l'alignement de vos dents avec nos solutions orthodontiques adaptées à tous les âges. Nous proposons des options traditionnelles et modernes pour répondre à vos besoins.",
+        includes: [
+          "Appareils métalliques ou céramiques",
+          "Aligneurs invisibles",
+          "Appareils lingaux",
+          "Suivi mensuel",
+          "Traitement complet"
+        ]
+      },
+      nettoyage: {
+        name: "Nettoyage professionnel",
+        price: "À partir de 120$",
+        duration: "30-45 minutes",
+        image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5",
+        description: "Un nettoyage dentaire professionnel est essentiel pour maintenir une bonne santé bucco-dentaire et prévenir les problèmes futurs. Nos hygiénistes utilisent des techniques douces et efficaces.",
+        includes: [
+          "Détartrage complet",
+          "Polissage des dents",
+          "Examen des gencives",
+          "Conseils personnalisés",
+          "Application de fluorure (optionnel)"
+        ]
+      },
+      urgence: {
+        name: "Urgence dentaire",
+        price: "À partir de 200$",
+        duration: "Selon urgence",
+        image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+        description: "Service d'urgence disponible 24/7 pour les douleurs dentaires sévères, les traumatismes et les infections. Nous offrons des solutions rapides pour soulager votre douleur.",
+        includes: [
+          "Examen d'urgence",
+          "Traitement de la douleur",
+          "Extractions en urgence",
+          "Réparation de prothèses",
+          "Antibiotiques si nécessaire"
+        ]
+      }
+    };
+
+    // Service Modal
+    const serviceModal = document.getElementById('serviceModal');
+    if (serviceModal) {
+      serviceModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        const service = button.getAttribute('data-service');
+        const serviceData = services[service];
+        
+        document.getElementById('serviceModalTitle').textContent = serviceData.name;
+        document.getElementById('serviceModalName').textContent = serviceData.name;
+        document.getElementById('serviceModalImage').src = serviceData.image;
+        document.getElementById('serviceModalPrice').textContent = serviceData.price;
+        document.getElementById('serviceModalDuration').textContent = serviceData.duration;
+        document.getElementById('serviceModalDescription').textContent = serviceData.description;
+        
+        const includesList = document.getElementById('serviceModalIncludes');
+        includesList.innerHTML = '';
+        serviceData.includes.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          includesList.appendChild(li);
+        });
+        
+        // Set selected service for appointment modal
+        document.getElementById('selectedService').value = service;
+      });
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Calendar functionality
+    let currentDate = new Date();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+
+    function renderCalendar(month, year) {
+      const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+      document.querySelector('.month-year').textContent = `${monthNames[month]} ${year}`;
+      
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const daysInPrevMonth = new Date(year, month, 0).getDate();
+      
+      let calendarDays = document.getElementById('calendarDays');
+      calendarDays.innerHTML = '';
+      
+      // Previous month days
+      for (let i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'col calendar-day unavailable';
+        dayElement.textContent = daysInPrevMonth - ((firstDay - 1) - i - 1);
+        calendarDays.appendChild(dayElement);
+      }
+      
+      // Current month days
+      const today = new Date();
+      for (let i = 1; i <= daysInMonth; i++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'col calendar-day';
+        dayElement.textContent = i;
+        
+        // Mark today
+        if (i === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+          dayElement.classList.add('available');
+        }
+        
+        // Mark available days (random for demo)
+        if (Math.random() > 0.3) {
+          dayElement.classList.add('available');
+        }
+        
+        dayElement.addEventListener('click', function() {
+          if (this.classList.contains('available')) {
+            document.querySelectorAll('.calendar-day.selected').forEach(el => el.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            // Show time slots
+            document.getElementById('timeSlotsSection').classList.remove('d-none');
+            generateTimeSlots();
+          }
+        });
+        
+        calendarDays.appendChild(dayElement);
+      }
+      
+      // Next month days
+      const totalCells = 42; // 6 weeks
+      const remainingCells = totalCells - (firstDay === 0 ? 1 : firstDay) - daysInMonth;
+      for (let i = 1; i <= remainingCells; i++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'col calendar-day unavailable';
+        dayElement.textContent = i;
+        calendarDays.appendChild(dayElement);
+      }
+    }
+
+    function generateTimeSlots() {
+      const timeSlots = document.getElementById('timeSlots');
+      timeSlots.innerHTML = '';
+      
+      // Generate random available time slots (for demo)
+      const startHour = 8;
+      const endHour = 17;
+      const slotDuration = 30; // minutes
+      
+      for (let hour = startHour; hour <= endHour; hour++) {
+        for (let minutes = 0; minutes < 60; minutes += slotDuration) {
+          if (Math.random() > 0.4) { // Random availability
+            const timeSlot = document.createElement('div');
+            timeSlot.className = 'col-6 col-md-4 col-lg-3';
+            
+            const timeButton = document.createElement('button');
+            timeButton.type = 'button';
+            timeButton.className = 'time-slot w-100';
+            timeButton.textContent = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+            
+            timeButton.addEventListener('click', function() {
+              document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+              this.classList.add('selected');
+              document.getElementById('appointmentDetails').classList.remove('d-none');
+            });
+            
+            timeSlot.appendChild(timeButton);
+            timeSlots.appendChild(timeSlot);
+          }
+        }
+      }
+    }
+
+    // Calendar navigation
+    document.querySelector('.prev-month').addEventListener('click', function() {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      renderCalendar(currentMonth, currentYear);
+    });
+
+    document.querySelector('.next-month').addEventListener('click', function() {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar(currentMonth, currentYear);
+    });
+
+    // Initialize calendar
+    renderCalendar(currentMonth, currentYear);
+
+    // Appointment form submission
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Here you would normally send the data to your server
+      alert('Votre demande de rendez-vous a été envoyée. Nous vous contacterons pour confirmation.');
+      this.reset();
+    });
+
+    document.getElementById('calendarAppointmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Here you would normally send the data to your server
+      alert('Votre rendez-vous a été confirmé. Vous recevrez un email de confirmation.');
+      const modal = bootstrap.Modal.getInstance(document.getElementById('appointmentModal'));
+      modal.hide();
+    });
+
+    // Initialize tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  </script>
+</body>
+</html>
